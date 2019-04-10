@@ -32,7 +32,11 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-
+  cart.map do |name,description|
+    if description[:clearance] == true
+      description[:price] = (description[:price] * 0.8).round(2)
+    end
+  end
 end
 
 def checkout(cart, coupons)
