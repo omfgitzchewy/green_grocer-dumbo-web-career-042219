@@ -17,7 +17,7 @@ def apply_coupons(cart, coupons)
   final = {}
   cart.each do |name, description|
     coupons.each do |coupon|
-      if coupon[:item] == name
+      if coupon[:item] == name && description[:count] >= coupon[:num]
         cart[name][:count] = cart[name][:count] - coupon[:num]
         if final[name + " W/COUPON"]
           final[name + " W/COUPON"][:count] += 1
@@ -32,7 +32,7 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  # code here
+
 end
 
 def checkout(cart, coupons)
