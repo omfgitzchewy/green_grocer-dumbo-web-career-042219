@@ -42,7 +42,6 @@ def apply_clearance(cart)
       end
       final[name][:clearance] = cart[name][:clearance]
       final[name][:count] = cart[name][:count]
-      end
     end
   end
   final
