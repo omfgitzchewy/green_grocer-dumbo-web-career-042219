@@ -37,9 +37,7 @@ def apply_clearance(cart)
     if final.key?(name) == false
       final[name] = {}
       if description[:clearance] == true
-        final[name][:price] = (description[:price] * 0.8).round(2)
-      else
-        final[name][:price] = :price
+        final[name][:price] = (cart[name][:price] * 0.8).round(2)
       end
     end
     final[name] = description
