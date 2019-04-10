@@ -17,16 +17,16 @@ def apply_coupons(cart, coupons)
   final = {}
   cart.each do |name, description|
     coupons.each do |coupon|
-    if coupon[:item] == name
-      cart[name][:count] = cart[name][:count] - coupon[:num]
-      if final[name + " W/COUPON"]
-        final[name + " W/COUPON"][:count] += 1
-      else
-        final[name + " W/COUPON"] = {:price => coupon[:cost], :clearance => cart[name][:clearance], :count => 1}
+      if coupon[:item] == name
+        cart[name][:count] = cart[name][:count] - coupon[:num]
+        if final[name + " W/COUPON"]
+          final[name + " W/COUPON"][:count] += 1
+        else
+          final[name + " W/COUPON"] = {:price => coupon[:cost], :clearance => cart[name][:clearance], :count => 1}
+        end
       end
     end
-    end
-    final[name] = description
+    
   end
   final
 end
