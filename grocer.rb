@@ -52,6 +52,6 @@ def checkout(cart, coupons)
   clearanced = apply_clearance(couponed)
   total = 0
   clearanced.each do |name,description|
-    sum += description[:price]
+    total += description[:price]
   end
 end
