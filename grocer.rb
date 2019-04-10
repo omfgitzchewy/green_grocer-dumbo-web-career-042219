@@ -34,6 +34,8 @@ end
 def apply_clearance(cart)
   final = {}
   cart.each do |name,description|
+    if final.key?(name) == false
+      final[name] = {}
       if description[:clearance] == true
         final[name][:price] = (description[:price] * 0.8).round(2)
       end
