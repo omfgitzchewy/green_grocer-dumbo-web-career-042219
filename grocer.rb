@@ -33,8 +33,10 @@ end
 
 def apply_clearance(cart)
   cart.map do |name,description|
-    if description[:clearance] == true
-      description[:price] = (description[:price] * 0.8).round(2)
+    description.map do |k,v|
+      if description[k] == :clearance
+        description[:price] = (description[:price] * 0.8).round(2)
+      end
     end
   end
 end
