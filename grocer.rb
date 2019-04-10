@@ -15,9 +15,10 @@ end
 
 def apply_coupons(cart, coupons)
   cart.each do |name, description|
-    if coupons[:item] == name
-      cart[name + "W/COUPON"] = description
-      
+    coupons.each do |coupon|
+      if coupon[:item] == name
+        cart[name + " W/COUPON"] = description
+      end
     end
   end
 end
