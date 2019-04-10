@@ -3,7 +3,6 @@ def consolidate_cart(cart)
   cart.each do |hash|
     hash.each do |name, description|
       if final[name]
-        final[name] = description
         final[name][:count] += 1
       else
         final[name] = description
@@ -15,7 +14,12 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  # code here
+  cart.each do |name, description|
+    if coupons[:item] == name
+      cart[name + "W/COUPON"] = description
+      
+    end
+  end
 end
 
 def apply_clearance(cart)
