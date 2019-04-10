@@ -54,4 +54,9 @@ def checkout(cart, coupons)
   clearanced.each do |name,description|
     total += description[:price] * description[:count]
   end
+  if total > 100
+    return total * 0.9
+  else
+    return total
+  end
 end
