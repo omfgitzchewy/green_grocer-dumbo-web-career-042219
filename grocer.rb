@@ -26,7 +26,7 @@ def apply_coupons(cart, coupons)
         end
       end
     end
-    
+    final[name] = description
   end
   final
 end
